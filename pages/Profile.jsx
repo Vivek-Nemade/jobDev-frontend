@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useForm } from "react-hook-form";
 import { useMutation } from "@tanstack/react-query";
-import { setUser } from "../store/slices/authSlice.js";
+import { setUser } from "../Store/slices/authSlice.js";
 import { userService } from "../API_Services/index.js";
 import { useAuth } from "../hooks/useAuth.js";
 import { Button, Input, Card } from "../components/ui/index.jsx";

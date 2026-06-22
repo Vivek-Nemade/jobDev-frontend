@@ -1,7 +1,7 @@
 import { useState, useRef } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { setUser } from "../store/slices/authSlice.js";
+import { setUser } from "../Store/slices/authSlice.js";
 import { authService } from "../API_Services/index.js";
 import { Button, Card } from "../components/ui/index.jsx";
 

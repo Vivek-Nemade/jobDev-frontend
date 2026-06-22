@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { fetchMe } from "../store/slices/authSlice.js";
+import { fetchMe } from "../Store/slices/authSlice.js";
 import { Spinner } from "../components/ui/index.jsx";
 
 
