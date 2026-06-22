@@ -3,7 +3,7 @@ import {
   BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer,
   PieChart, Pie, Cell, Legend,
 } from "recharts";
-import { adminService } from "../services/index.js";
+import { adminService } from "../API_Services/index.js";
 import { Button, Card, Badge, Spinner } from "../components/ui/index.jsx";
 
 const PIE_COLORS = ["#4f46e5", "#7c3aed", "#2563eb", "#0891b2", "#059669"];

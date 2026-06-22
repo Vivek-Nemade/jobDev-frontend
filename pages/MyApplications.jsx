@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { Link } from "react-router-dom";
-import { applicationService } from "../services/index.js";
+import { applicationService } from "../API_Services/index.js";
 import { Card, StatusBadge, Spinner, EmptyState } from "../components/ui/index.jsx";
 
 export default function MyApplications() {

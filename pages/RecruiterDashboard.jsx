@@ -1,6 +1,6 @@
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { Link } from "react-router-dom";
-import { jobService } from "../services/index.js";
+import { jobService } from "../API_Services/index.js";
 import { Button, Card, StatusBadge, Spinner, EmptyState } from "../components/ui/index.jsx";
 
 export default function RecruiterDashboard() {

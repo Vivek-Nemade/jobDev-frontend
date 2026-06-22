@@ -1,6 +1,6 @@
 import { useParams, Link } from "react-router-dom";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
-import { applicationService, jobService } from "../services/index.js";
+import { applicationService, jobService } from "../API_Services/index.js";
 import { Button, Card, StatusBadge, Select, Spinner, EmptyState } from "../components/ui/index.jsx";
 
 const STATUS_OPTIONS = [

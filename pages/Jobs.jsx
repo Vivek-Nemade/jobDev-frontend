@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
-import { jobService } from "../services/index.js";
+import { jobService } from "../API_Services/index.js";
 import { useDebounce } from "../hooks/useDebounce.js";
 import JobCard from "../components/job/JobCard.jsx";
 import { Input, Select, Button, Spinner, EmptyState } from "../components/ui/index.jsx";

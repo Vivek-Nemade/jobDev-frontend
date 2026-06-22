@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { useQuery, useMutation } from "@tanstack/react-query";
-import { jobService } from "../services/index.js";
+import { jobService } from "../API_Services/index.js";
 import { Button, Input, Select, Card } from "../components/ui/index.jsx";
 
 const JOB_TYPES = [

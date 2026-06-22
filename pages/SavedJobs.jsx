@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { Link } from "react-router-dom";
-import { userService } from "../services/index.js";
+import { userService } from "../API_Services/index.js";
 import JobCard from "../components/job/JobCard.jsx";
 import { Spinner, EmptyState } from "../components/ui/index.jsx";
 

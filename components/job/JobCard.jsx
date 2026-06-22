@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useAuth } from "../../hooks/useAuth";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { userService } from "../../Services";
+import { userService } from "../../API_Services";
 import { Badge, StatusBadge } from "../ui";
 
 

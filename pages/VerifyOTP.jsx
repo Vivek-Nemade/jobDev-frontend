@@ -2,7 +2,7 @@ import { useState, useRef } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { setUser } from "../store/slices/authSlice.js";
-import { authService } from "../services/index.js";
+import { authService } from "../API_Services/index.js";
 import { Button, Card } from "../components/ui/index.jsx";
 
 export default function VerifyOTP() {

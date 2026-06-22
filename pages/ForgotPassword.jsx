@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import { authService } from "../services/index.js";
+import { authService } from "../API_Services/index.js";
 import { Button, Input, Card } from "../components/ui/index.jsx";
 
 export function ForgotPassword() {
