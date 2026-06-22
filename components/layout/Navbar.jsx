@@ -187,7 +187,7 @@ export default function Navbar(){
     const roleLabel = isAdmin ? "Admin" : isRecruiter ? "Recruiter" : "Jobseeker";
   return (
     <>
-    //Desktop navbar
+    {/* Desktop navbar */}
     <nav className="sticky top-0 z-50 border-b border-gray-200 bg-white">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
@@ -286,13 +286,13 @@ export default function Navbar(){
       </div>
     </nav>
 
-    // Mobile slide in drawer
+     {/* Mobile slide in drawer */}
     <div onClick={closeMenu} className={`md:hidden fixed inset-0 z-50 bg-blcck/50 transition-opacity ${
       menuOpen ? "opacity-100" : "opacity-0 pointer-events-none"
     }`}/>
 
-    <aside className={`md:hidden fixed inset-y-0 left-0 z-50 flex w-64 flex-col bg-gray-900 shadow-xl transition-transform duration-300 ${
-          menuOpen ? "translate-x-0" : "-translate-x-full"
+    <aside className={`md:hidden fixed inset-y-0 right-0 z-50 flex w-64 flex-col bg-gray-900 shadow-xl transition-transform duration-300 ${
+          menuOpen ? "translate-x-0" : "translate-x-full"
         }`}>
 
           <div className="flex items-center justify-between px-5 py-5">
