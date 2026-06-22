@@ -183,7 +183,7 @@ const isDeadlineOver = new Date() > new Date(job?.deadline);
                 <Button onClick={() => setShowModal(true)} disabled={job.status !== "approved"}>
                   Apply Now
                 </Button>
-              )} */}/
+              )} */}
               {actionButton()}
             </div>
           )}

@@ -61,10 +61,10 @@ export default function PostJob() {
     mutation.mutate({
       ...data,
       skills,
-      salary: {
-        min: data["salary.min"] ? Number(data["salary.min"]) : undefined,
-        max: data["salary.max"] ? Number(data["salary.max"]) : undefined,
-      },
+      // salary: {
+      //   min: data.salary.min ? Number(data["salary.min"]) : undefined,
+      //   max: data.salary.max ? Number(data["salary.max"]) : undefined,
+      // },
     });
   };
 
@@ -128,8 +128,8 @@ export default function PostJob() {
           </div>
 
           <div className="grid grid-cols-2 gap-4">
-            <Input label="Min Salary (₹)" type="number" placeholder="e.g. 60000" {...register("salary.min")} />
-            <Input label="Max Salary (₹)" type="number" placeholder="e.g. 90000" {...register("salary.max")} />
+            <Input label="Min Salary (₹)" type="number" placeholder="e.g. 60000" {...register("salary.min",{valueAsNumber:true})} />
+            <Input label="Max Salary (₹)" type="number" placeholder="e.g. 90000" {...register("salary.max",{valueAsNumber:true})} />
           </div>
 
           <Input label="Application Deadline" type="date" {...register("deadline")} />
