@@ -24,13 +24,7 @@ export default function Navbar() {
           <div className="hidden md:flex items-center gap-6">
             <NavLink
               to="/jobs"
-              className={({ isActive }) =>
-                `text-sm font-medium ${
-                  isActive
-                    ? "text-blue-600"
-                    : "text-gray-600 hover:text-gray-900"
-                }`
-              }
+              className={navLinkClass}
             >
               Browse Jobs
             </NavLink>
@@ -53,26 +47,14 @@ export default function Navbar() {
                 {isJobseeker && (
                   <>
                     <NavLink  to="/applications"
-                      className={({ isActive }) =>
-                        `text-sm font-medium ${
-                          isActive
-                            ? "text-blue-600"
-                            : "text-gray-600 hover:text-gray-900"
-                        }`
-                      }
+                      className={navLinkClass}
                     >
                       Applications
                     </NavLink>
 
                     <NavLink
                       to="/saved-jobs"
-                      className={({ isActive }) =>
-                        `text-sm font-medium ${
-                          isActive
-                            ? "text-blue-600"
-                            : "text-gray-600 hover:text-gray-900"
-                        }`
-                      }
+                      className={navLinkClass}
                     >
                       Saved
                     </NavLink>
@@ -82,13 +64,7 @@ export default function Navbar() {
                {isRecruiter && (
             <NavLink
               to="/recruiter"
-              className={({ isActive }) =>
-                `text-sm font-medium ${
-                  isActive
-                    ? "text-blue-600"
-                    : "text-gray-600 hover:text-gray-900"
-                }`
-              }
+              className={navLinkClass}
             >
               Dashboard
             </NavLink>
@@ -97,13 +73,7 @@ export default function Navbar() {
                {isAdmin && (
             <NavLink
               to="/admin"
-              className={({ isActive }) =>
-                `text-sm font-medium ${
-                  isActive
-                    ? "text-blue-600"
-                    : "text-gray-600 hover:text-gray-900"
-                }`
-              }
+              className={navLinkClass}
             >
               Admin
             </NavLink>
@@ -135,13 +105,13 @@ export default function Navbar() {
               className="p-2 rounded-lg text-gray-600 hover:bg-gray-100 transition"
               > 
                 { setMenuOpen ?(
-                  <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-                </svg>
+                  <svg className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                      <path fillRule="evenodd" d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z" clipRule="evenodd" />
+                  </svg>
                 ):(
-                  <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
-                </svg>
+                  <svg className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                    <path d="M6.28 5.22a.75.75 0 00-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 101.06 1.06L10 11.06l3.72 3.72a.75.75 0 101.06-1.06L11.06 10l3.72-3.72a.75.75 0 00-1.06-1.06L10 8.94 6.28 5.22z" />
+                  </svg>
                 )}
             </button>
           </div>
