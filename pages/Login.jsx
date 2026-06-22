@@ -90,7 +90,8 @@ export default function Login() {
           </div>
           <div className="justify-center flex gap-2">
           <a
-            href="http://localhost:5000/api/v1/auth/google?role=jobseeker"
+            // href="http://localhost:5000/api/v1/auth/google?role=jobseeker"
+            href="https://jobdev-backend.onrender.com/api/v1/auth/google?role=jobseeker"
             className="flex items-center justify-center gap-2 w-full border border-gray-300 
                         rounded-lg px-4 py-2.5 text-sm font-medium text-gray-700 transition-colors duration-300 hover:bg-blue-100"
           >
@@ -103,7 +104,8 @@ export default function Login() {
             Continue with Google as Jobseeker
           </a>
           <a 
-            href="http://localhost:5000/api/v1/auth/google?role=recruiter"
+            // href="http://localhost:5000/api/v1/auth/google?role=recruiter"
+            href="https://jobdev-backend.onrender.com/api/v1/auth/google?role=recruiter"
             className="flex items-center justify-center gap-2 w-full border border-gray-300 
             rounded-lg px-4 py-2.5 text-sm font-medium text-gray-700 transition-colors duration-300 hover:bg-blue-100"
           >
