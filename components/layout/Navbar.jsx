@@ -201,12 +201,12 @@ export default function Navbar(){
     <nav className="sticky top-0 z-50 border-b border-gray-200 bg-white bg-white/80 backdrop-blur-md">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
-            <Link tp="/"  onClick={closeMenu}>
+            <Link to="/"  onClick={closeMenu}>
               <img src={logo1} alt="TalentForge" className="h-12 w-auto" />
             </Link>
 
             <div className="hidden md:flex items-center gap-6">
-                <NavLink to="jobs" className={desktopLinkClass}>
+                <NavLink to="/jobs" className={desktopLinkClass}>
                   Browse Jobs
                 </NavLink>
 
@@ -298,7 +298,7 @@ export default function Navbar(){
       menuOpen ? "opacity-100" : "opacity-0 pointer-events-none"
     }`}/>
 
-    <aside className={`md:hidden fixed inset-y-0 right-0 z-50 flex w-64 flex-col bg-[#1d1e3e] shadow-xl transition-transform duration-300 ${
+    <aside className={`md:hidden fixed inset-y-0 right-0 z-50 flex w-64 flex-col bg-[#0d0e2d] shadow-xl transition-transform duration-300 ${
           menuOpen ? "translate-x-0" : "translate-x-full"
         }`}>
 
