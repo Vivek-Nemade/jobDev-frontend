@@ -1,7 +1,9 @@
 import { Link, NavLink } from "react-router-dom";
 import { useAuth } from "../../hooks/useAuth";
 import { useState } from "react";
-import logo from "../../src/assets/logo.svg"
+// import logo from "../../src/assets/logo.svg"
+import logo1 from "../../src/assets/talent3.svg"
+import logo2 from "../../src/assets/talent4.svg"
 
 // export default function Navbar() {
 //   const { user, logout, isJobseeker, isRecruiter, isAdmin } = useAuth();
@@ -200,7 +202,7 @@ export default function Navbar(){
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
             <Link tp="/"  onClick={closeMenu}>
-              <img src={logo} alt="JobDev" className="h-12 w-auto" />
+              <img src={logo1} alt="JobDev" className="h-12 w-auto" />
             </Link>
 
             <div className="hidden md:flex items-center gap-6">
@@ -302,7 +304,7 @@ export default function Navbar(){
 
           <div className="flex items-center justify-between px-5 py-5">
             <Link to="/" onClick={closeMenu} >
-            <img src={logo} alt="JobDev" className="h-8 w-auto" />
+            <img src={logo2} alt="JobDev" className="h-8 w-auto" />
           </Link>
             <button
               onClick={closeMenu}
