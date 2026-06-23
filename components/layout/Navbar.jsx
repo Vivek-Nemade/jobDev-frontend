@@ -2,7 +2,7 @@ import { Link, NavLink } from "react-router-dom";
 import { useAuth } from "../../hooks/useAuth";
 import { useState } from "react";
 // import logo from "../../src/assets/logo.svg"
-import logo1 from "../../src/assets/talent5.svg"
+import logo1 from "../../src/assets/talent5.png"
 import logo2 from "../../src/assets/talent4.svg"
 
 // export default function Navbar() {
