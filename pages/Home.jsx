@@ -10,13 +10,13 @@ export default function Home() {
     queryKey: ["jobs", { page: 1, limit: 6 }],
     queryFn: () => jobService.getJobs({ page: 1, limit: 6 }).then((r) => r.data),
   });
-  const { user } = useAuth();
+  const { user, isJobseeker, isRecruiter } = useAuth();
 
   return (
     <div>
       
       <div className="bg-gradient-to-br from-primary-600 to-primary-700 text-white py-20 px-4">
-        {!user && (<div className="max-w-3xl mx-auto text-center">
+        <div className="max-w-3xl mx-auto text-center">
           <h1 className="text-4xl sm:text-5xl font-extrabold leading-tight">
             Find Your Next Dev Job
           </h1>
@@ -24,20 +24,20 @@ export default function Home() {
             Thousands of software engineering jobs from top companies. Built for developers.
           </p>
           <div className="mt-8 flex gap-3 justify-center flex-wrap">
-            <Link
+            {(!user || isJobseeker) &&(<Link
               to="/jobs"
               className="bg-white text-primary-600 font-semibold px-6 py-3 rounded-xl hover:bg-primary-50 transition shadow"
             >
               Browse All Jobs
-            </Link>
-            <Link
+            </Link>)}
+            {(!user || isRecruiter) &&(<Link
               to="/recruiter/post-job"
               className="border border-white text-white font-semibold px-6 py-3 rounded-xl hover:bg-primary-500 transition"
             >
               Post a Job
-            </Link>
+            </Link>)}
           </div>
-        </div>)}
+        </div>
       </div>
 
       

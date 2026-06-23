@@ -298,13 +298,13 @@ export default function Navbar(){
       menuOpen ? "opacity-100" : "opacity-0 pointer-events-none"
     }`}/>
 
-    <aside className={`md:hidden fixed inset-y-0 right-0 z-50 flex w-64 flex-col bg-gray-900 shadow-xl transition-transform duration-300 ${
+    <aside className={`md:hidden fixed inset-y-0 right-0 z-50 flex w-64 flex-col bg-[#1d1e3e] shadow-xl transition-transform duration-300 ${
           menuOpen ? "translate-x-0" : "translate-x-full"
         }`}>
 
           <div className="flex items-center justify-between px-3 py-3">
             <Link to="/" onClick={closeMenu} >
-            <img src={logo2} alt="TalentForge" className="h-8 w-auto" />
+            <img src={logo2} alt="TalentForge" className="h-10 w-auto" />
           </Link>
             <button
               onClick={closeMenu}
