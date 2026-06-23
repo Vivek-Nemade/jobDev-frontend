@@ -199,8 +199,8 @@ export default function Navbar(){
     <nav className="sticky top-0 z-50 border-b border-gray-200 bg-white bg-white/80 backdrop-blur-md">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
-            <Link tp="/" className="text-xl font-bold text-blue-600" onClick={closeMenu}>
-              <img src={logo} alt="JobDev" />
+            <Link tp="/"  onClick={closeMenu}>
+              <img src={logo} alt="JobDev" className="h-12 w-auto" />
             </Link>
 
             <div className="hidden md:flex items-center gap-6">
@@ -301,8 +301,8 @@ export default function Navbar(){
         }`}>
 
           <div className="flex items-center justify-between px-5 py-5">
-            <Link to="/" onClick={closeMenu} className="text-xl font-bold text-blue-500">
-            <img src={logo} alt="JobDev" />
+            <Link to="/" onClick={closeMenu} >
+            <img src={logo} alt="JobDev" className="h-8 w-auto" />
           </Link>
             <button
               onClick={closeMenu}
