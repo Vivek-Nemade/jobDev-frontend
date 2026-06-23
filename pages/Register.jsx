@@ -33,7 +33,7 @@ export default function Register() {
       <div className="w-full max-w-md">
         <div className="text-center mb-8">
           <h1 className="text-3xl font-bold text-gray-900">Create account</h1>
-          <p className="text-gray-500 mt-2">Join JobDev today</p>
+          <p className="text-gray-500 mt-2">Join TalentForge today</p>
         </div>
 
         <Card>

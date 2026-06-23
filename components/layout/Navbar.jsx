@@ -2,7 +2,7 @@ import { Link, NavLink } from "react-router-dom";
 import { useAuth } from "../../hooks/useAuth";
 import { useState } from "react";
 // import logo from "../../src/assets/logo.svg"
-import logo1 from "../../src/assets/talent3.svg"
+import logo1 from "../../src/assets/talent5.svg"
 import logo2 from "../../src/assets/talent4.svg"
 
 // export default function Navbar() {
@@ -202,7 +202,7 @@ export default function Navbar(){
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
             <Link tp="/"  onClick={closeMenu}>
-              <img src={logo1} alt="JobDev" className="h-12 w-auto" />
+              <img src={logo1} alt="TalentForge" className="h-12 w-auto" />
             </Link>
 
             <div className="hidden md:flex items-center gap-6">
@@ -302,9 +302,9 @@ export default function Navbar(){
           menuOpen ? "translate-x-0" : "translate-x-full"
         }`}>
 
-          <div className="flex items-center justify-between px-5 py-5">
+          <div className="flex items-center justify-between px-3 py-3">
             <Link to="/" onClick={closeMenu} >
-            <img src={logo2} alt="JobDev" className="h-8 w-auto" />
+            <img src={logo2} alt="TalentForge" className="h-8 w-auto" />
           </Link>
             <button
               onClick={closeMenu}
