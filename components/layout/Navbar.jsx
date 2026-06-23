@@ -1,6 +1,7 @@
 import { Link, NavLink } from "react-router-dom";
 import { useAuth } from "../../hooks/useAuth";
 import { useState } from "react";
+import logo from "../../src/assets/logo.svg"
 
 // export default function Navbar() {
 //   const { user, logout, isJobseeker, isRecruiter, isAdmin } = useAuth();
@@ -174,8 +175,15 @@ export default function Navbar(){
   const [menuOpen, setMenuOpen] = useState(false);
   const closeMenu = () => setMenuOpen(false);
 
-  const desktopLinkClass =({isActive})=>
-    `text-sm font-medium transition ${isActive ? "text-blue-600" : "text-gray-900"}`;
+  // const desktopLinkClass =({isActive})=>
+  //   `text-sm font-medium transition ${isActive ? "text-blue-600" : "text-gray-900"}`;
+
+  const desktopLinkClass = ({ isActive }) =>
+  `rounded-xl px-4 py-2 text-sm font-semibold transition-all duration-200 active:scale-[0.98] ${
+    isActive 
+      ? "bg-blue-600 text-white shadow-sm" 
+      : "text-blue-600 hover:bg-blue-50"
+  }`;
   
 
   const mobileLinkClass =({isActive})=>`flex items-center gap-3 rounded-lg px-3 text-sm font-medium transition 
@@ -188,11 +196,11 @@ export default function Navbar(){
   return (
     <>
     {/* Desktop navbar */}
-    <nav className="sticky top-0 z-50 border-b border-gray-200 bg-white">
+    <nav className="sticky top-0 z-50 border-b border-gray-200 bg-white bg-white/80 backdrop-blur-md">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
             <Link tp="/" className="text-xl font-bold text-blue-600" onClick={closeMenu}>
-              JobDev
+              <img src={logo} alt="JobDev" />
             </Link>
 
             <div className="hidden md:flex items-center gap-6">
@@ -203,15 +211,12 @@ export default function Navbar(){
                 {
                   !user ? (
                     <>
-                      <Link to="/login" className="text-sm font-medium text-gray-600 hover:text-gray-900">
+                      <Link to="/login" className={desktopLinkClass}>
                         Login
                       </Link>
-                      <Link
-                    to="/register"
-                    className="rounded-lg bg-blue-600 px-4 py-2 text-sm font-medium text-white transition hover:bg-blue-700"
-                  >
-                    Sign Up
-                  </Link>
+                      <Link to="/register" className={desktopLinkClass}>
+                        Sign Up
+                      </Link>
                     </>
                   ) :(
                     <>
@@ -297,7 +302,7 @@ export default function Navbar(){
 
           <div className="flex items-center justify-between px-5 py-5">
             <Link to="/" onClick={closeMenu} className="text-xl font-bold text-blue-500">
-            JobDev
+            <img src={logo} alt="JobDev" />
           </Link>
             <button
               onClick={closeMenu}
@@ -316,14 +321,14 @@ export default function Navbar(){
               <Link
                 to="/login"
                 onClick={closeMenu}
-                className="rounded-lg px-3 py-2.5 text-sm font-medium text-gray-300 hover:bg-gray-800 hover:text-white transition"
+                className="rounded-lg px-3 py-2.5 text-sm font-medium text-white hover:bg-gray-800 hover:text-white transition"
               >
                 Login
               </Link>
               <Link
                 to="/register"
                 onClick={closeMenu}
-                className="rounded-lg bg-blue-600 px-3 py-2.5 text-center text-sm font-medium text-white transition hover:bg-blue-700"
+                className="rounded-lg px-3 py-2.5  text-sm font-medium text-white hover:bg-gray-800 hover:text-white transition"
               >
                 Sign Up
               </Link>
@@ -333,7 +338,7 @@ export default function Navbar(){
               <p className="px-3 pb-2 text-xs font-semibold uppercase tracking-wide text-gray-500">
                 Menu
               </p>
-              <nav className="flex flex-col gap-1">
+              <nav className="flex flex-col gap-2">
                 <NavLink to="/jobs" onClick={closeMenu} className={mobileLinkClass}>
                   <BriefcaseIcon />
                   Browse Jobs
@@ -362,7 +367,7 @@ export default function Navbar(){
                 {isAdmin && (
                   <NavLink to="/admin" onClick={closeMenu} className={mobileLinkClass}>
                     <ShieldIcon />
-                    Admin
+                    Dashboard
                   </NavLink>
                 )}
               </nav>
@@ -370,7 +375,7 @@ export default function Navbar(){
               <p className="px-3 pb-2 pt-6 text-xs font-semibold uppercase tracking-wide text-gray-500">
                 Account
               </p>
-              <nav className="flex flex-col gap-1">
+              <nav className="flex flex-col gap-2">
                 <NavLink to="/profile" onClick={closeMenu} className={mobileLinkClass}>
                   <UserIcon />
                   Profile

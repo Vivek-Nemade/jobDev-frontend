@@ -3,18 +3,20 @@ import { useQuery } from "@tanstack/react-query";
 import { jobService } from "../API_Services/index.js";
 import JobCard from "../components/job/JobCard.jsx";
 import { Spinner } from "../components/ui/index.jsx";
+import { useAuth } from "../hooks/useAuth.js";
 
 export default function Home() {
   const { data, isLoading } = useQuery({
     queryKey: ["jobs", { page: 1, limit: 6 }],
     queryFn: () => jobService.getJobs({ page: 1, limit: 6 }).then((r) => r.data),
   });
+  const { user } = useAuth();
 
   return (
     <div>
-      {/* Hero */}
+      
       <div className="bg-gradient-to-br from-primary-600 to-primary-700 text-white py-20 px-4">
-        <div className="max-w-3xl mx-auto text-center">
+        {!user && (<div className="max-w-3xl mx-auto text-center">
           <h1 className="text-4xl sm:text-5xl font-extrabold leading-tight">
             Find Your Next Dev Job
           </h1>
@@ -35,10 +37,10 @@ export default function Home() {
               Post a Job
             </Link>
           </div>
-        </div>
+        </div>)}
       </div>
 
-      {/* Recent Jobs */}
+      
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="flex items-center justify-between mb-6">
           <h2 className="text-2xl font-bold text-gray-900">Recent Jobs</h2>
@@ -58,7 +60,7 @@ export default function Home() {
         )}
       </div>
 
-      {/* CTA */}
+      
       <div className="bg-gray-900 text-white py-16 px-4 text-center">
         <h2 className="text-3xl font-bold">Hiring developers?</h2>
         <p className="text-gray-400 mt-2">Post your job and reach thousands of developers.</p>
