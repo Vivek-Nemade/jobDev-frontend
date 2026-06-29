@@ -1,10 +1,13 @@
 import {  useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { useForm } from "react-hook-form";
 import { setUser } from "../Store/slices/authSlice.js";
 import { authService } from "../API_Services/index.js";
 import { Button, Input, Card } from "../components/ui/index.jsx";
+ import { ToastContainer, toast } from 'react-toastify';
+ import "react-toastify/dist/ReactToastify.css";
+import { useEffect } from "react";
 
 export default function Login() {
   const { register, handleSubmit, formState: { errors } } = useForm();
@@ -12,6 +15,9 @@ export default function Login() {
   const [loading, setLoading] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const location = useLocation();
+  
+  
 
 
   const onSubmit = async (data) => {
@@ -34,6 +40,21 @@ export default function Login() {
     }
   };
 
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const paramsError = params.get("error");
+
+    if(paramsError){
+      navigate(location.pathname, { replace: true });
+      setTimeout(() => {
+        toast.error(paramsError);
+      },0)
+    
+
+  }
+  },[])
+  
+
   return (
     <div className="min-h-screen bg-gray-50 flex items-center justify-center px-4">
       <div className="w-full max-w-md">
@@ -41,6 +62,7 @@ export default function Login() {
           <h1 className="text-3xl font-bold text-gray-900">Welcome back</h1>
           <p className="text-gray-500 mt-2">Sign in to your TalentForge account</p>
         </div>
+        <ToastContainer position="top-right" autoClose={4000}/>
 
         <Card>
           {error && (
