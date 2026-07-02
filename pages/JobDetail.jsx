@@ -88,6 +88,7 @@ export default function JobDetail() {
   const [showModal, setShowModal] = useState(false);
   const [applied, setApplied] = useState(false);
   const queryClient = useQueryClient();
+  const [isSaved, setIsSaved] = useState(job?.isSaved ?? false);
 
   const { data: job, isLoading } = useQuery({
     queryKey: ["job", id],
@@ -100,7 +101,11 @@ const isDeadlineOver = new Date() > new Date(job?.deadline);
 
   const saveMutation = useMutation({
     mutationFn: () => userService.saveJob(id),
-    onSuccess: () => queryClient.invalidateQueries(["savedJobs"]),
+    onSuccess: (data) => {
+      setIsSaved(data.saved);
+      // queryClient.invalidateQueries(["savedJobs"])
+      queryClient.invalidateQueries({queryKey: ["savedJobs"]});
+    },
   });
 
   if (isLoading) return <Spinner />;
@@ -169,7 +174,7 @@ const isDeadlineOver = new Date() > new Date(job?.deadline);
                 onClick={() => saveMutation.mutate()}
                 loading={saveMutation.isPending}
               >
-                ☆ Save
+                {isSaved ? "★ Saved" : "☆ Save"}
               </Button>
               {/* {applied ? (
                 <div className="flex items-center gap-2 text-sm text-green-600 font-medium px-4 py-2 bg-green-50 rounded-lg">
