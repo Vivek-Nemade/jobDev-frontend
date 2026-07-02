@@ -101,7 +101,9 @@ const isDeadlineOver = new Date() > new Date(job?.deadline);
   const saveMutation = useMutation({
     mutationFn: () => userService.saveJob(id),
     onSuccess: (data) => {
-      console.log("mutation data:", data);
+      console.log("mutation data:", data.data);
+      console.log("mutation data:", data.saved);
+      console.log("mutation data:", data.data.saved);
       queryClient.setQueryData(["job",id],(oldData)=>{
         if(!oldData) return oldData;
         return{
