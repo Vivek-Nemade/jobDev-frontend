@@ -3,6 +3,7 @@ import { useAuth } from "../../hooks/useAuth";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { userService } from "../../API_Services";
 import { Badge, StatusBadge } from "../ui";
+import { useState } from "react";
 
 
 
@@ -17,19 +18,22 @@ const JOB_TYPE_COLORS = {
 export default function JobCard({ job, saved = false }) {
   const { user } = useAuth();
   const queryClient = useQueryClient();
+  const [isSaved, setIsSaved] = useState(saved);
 
   const saveMutation = useMutation({
     mutationFn: () => userService.saveJob(job._id),
-    onSuccess: () => {
+    onSuccess: (data) => {
+      setIsSaved(data.saved); 
       queryClient.invalidateQueries(["savedJobs"]);
+      queryClient.invalidateQueries(["jobs"]);
     },
   });
 
   const salary =
     job.salary?.min && job.salary?.max
-      ? `$${(job.salary.min / 1000).toFixed(0)}k - $${(job.salary.max / 1000).toFixed(0)}k`
+      ? `₹${(job.salary.min / 1000).toFixed(0)}k - ₹${(job.salary.max / 1000).toFixed(0)}k`
       : job.salary?.min
-      ? `From $${(job.salary.min / 1000).toFixed(0)}k`
+      ? `From ₹${(job.salary.min / 1000).toFixed(0)}k`
       : null;
 
   return (
@@ -49,7 +53,7 @@ export default function JobCard({ job, saved = false }) {
           <button
             onClick={() => saveMutation.mutate()}
             className="text-gray-400 hover:text-primary-600 transition mt-0.5"
-            title={saved ? "Unsave" : "Save job"}
+            title={isSaved ? "Unsave" : "Save job"}
           >
             {saved ? "★" : "☆"}
           </button>
