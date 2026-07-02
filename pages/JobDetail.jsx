@@ -88,13 +88,13 @@ export default function JobDetail() {
   const [showModal, setShowModal] = useState(false);
   const [applied, setApplied] = useState(false);
   const queryClient = useQueryClient();
-  const [isSaved, setIsSaved] = useState(job?.isSaved ?? false);
-
+  
   const { data: job, isLoading } = useQuery({
     queryKey: ["job", id],
     queryFn: () => jobService.getJob(id).then((r) => r.data),
   });
-// console.log(job.deadline);
+  // console.log(job.deadline);
+  const [isSaved, setIsSaved] = useState(job?.isSaved ?? false);
 
 const isDeadlineOver = new Date() > new Date(job?.deadline);
 
