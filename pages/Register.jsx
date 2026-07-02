@@ -43,9 +43,9 @@ export default function Register() {
             </div>
           )}
           <div className="bg-red-50 border border-red-200 text-red-700 rounded-lg px-4 py-3  mb-4">
-              <h1 >Note: You need to verify your email before you can login</h1>
-              <p>As Mailtrap Sandbpox is used to catch OTP emails , It won't work on live Website</p>
-              <p className="text-blue-600">Use Google login instead</p>
+              <span className="text-base mt-0.5">💡</span>
+              <p>For security and ease of use on this portfolio platform, live registration is restricted. Please use our instant Demo credentials instead!</p>
+              <p className="text-gray-600">Use Google login instead</p>
             </div>
 
           <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4">
@@ -99,7 +99,7 @@ export default function Register() {
               </div>
             </div>
 
-            <Button type="submit" loading={loading} className="w-full mt-2">
+            <Button disabled={true} type="submit"  loading={loading} className="w-full mt-2">
               Create Account
             </Button>
           </form>

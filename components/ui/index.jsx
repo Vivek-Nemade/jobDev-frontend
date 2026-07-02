@@ -57,7 +57,7 @@ export function Input({ label, error,type, className = "", ...props }) {
         <button
           type="button"
           onClick={() => setShowPassword((prev) => !prev)}
-          className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-500 transition text-sm"
+          className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-500 cursor-pointer transition text-xl"
           >
             {showPassword ?  "🙈" : "👁️"}
 
