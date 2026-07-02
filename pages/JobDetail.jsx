@@ -94,17 +94,24 @@ export default function JobDetail() {
     queryFn: () => jobService.getJob(id).then((r) => r.data),
   });
   // console.log(job.deadline);
-  const [isSaved, setIsSaved] = useState(job?.isSaved ?? false);
-
+const isSaved=job?.isSaved ?? false;
 const isDeadlineOver = new Date() > new Date(job?.deadline);
 
 
   const saveMutation = useMutation({
     mutationFn: () => userService.saveJob(id),
     onSuccess: (data) => {
-      setIsSaved(data.saved);
+      // setIsSaved(data.saved);
       // queryClient.invalidateQueries(["savedJobs"])
       queryClient.invalidateQueries({queryKey: ["savedJobs"]});
+
+      queryClient.setQueryData(["jobs",id],(oldData)=>{
+        if(!oldData) return oldData;
+        return{
+          ...oldData,
+          isSaved:data.isSaved
+        }
+      })
     },
   });
 
