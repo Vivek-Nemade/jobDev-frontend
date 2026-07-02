@@ -101,17 +101,15 @@ const isDeadlineOver = new Date() > new Date(job?.deadline);
   const saveMutation = useMutation({
     mutationFn: () => userService.saveJob(id),
     onSuccess: (data) => {
-      // setIsSaved(data.saved);
-      // queryClient.invalidateQueries(["savedJobs"])
-      queryClient.invalidateQueries({queryKey: ["savedJobs"]});
-
-      queryClient.setQueryData(["jobs",id],(oldData)=>{
+      
+      queryClient.setQueryData(["job",id],(oldData)=>{
         if(!oldData) return oldData;
         return{
           ...oldData,
-          isSaved:data.isSaved
+          isSaved:data.saved
         }
       })
+      queryClient.invalidateQueries({queryKey: ["savedJobs"]});
     },
   });
 
@@ -181,7 +179,7 @@ const isDeadlineOver = new Date() > new Date(job?.deadline);
                 onClick={() => saveMutation.mutate()}
                 loading={saveMutation.isPending}
               >
-                {isSaved ? "★ Saved" : "☆ Save"}
+                {isSaved ? "★ Unsave" : "☆ Save"}
               </Button>
               {/* {applied ? (
                 <div className="flex items-center gap-2 text-sm text-green-600 font-medium px-4 py-2 bg-green-50 rounded-lg">
