@@ -213,12 +213,12 @@ export default function Navbar(){
                 {
                   !user ? (
                     <>
-                      <Link to="/login" className={desktopLinkClass}>
+                      <NavLink to="/login" className={desktopLinkClass}>
                         Login
-                      </Link>
-                      <Link to="/register" className={desktopLinkClass}>
+                      </NavLink>
+                      <NavLink to="/register" className={desktopLinkClass}>
                         Sign Up
-                      </Link>
+                      </NavLink>
                     </>
                   ) :(
                     <>
